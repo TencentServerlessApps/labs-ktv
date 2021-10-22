@@ -1,1 +1,1 @@
-app: ${env:APP}
+app: labs-ktv

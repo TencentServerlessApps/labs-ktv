@@ -1,5 +1,5 @@
-app: ${env:APP}
-stage: ${stage} # The debugger only for test env.
+app: labs-ktv
+stage: prod # The debugger only for test env.
 
 component: http
 name: auth_users

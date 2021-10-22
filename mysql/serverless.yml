@@ -5,8 +5,8 @@ component: cynosdb
 name: labs_db
 
 inputs:
-  region: ${env:REGION}
-  zone: ${env:ZONE}
+  region: ap-guangzhou
+  zone: ap-guangzhou-4
   vpcConfig:
     vpcId: ${output:${stage}:${app}:labs_vpc.vpcId}
     subnetId: ${output:${stage}:${app}:labs_vpc.subnetId}

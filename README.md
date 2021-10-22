@@ -18,10 +18,6 @@ TENCENT_SECRET_KEY=xxxxxxxxxxxxxxxx
 # 应用名称
 APP=labs
 
-# VPC和数据库所在的区域(REGION)和可用区(ZONE)
-REGION=ap-guangzhou
-ZONE=ap-guangzhou-4
-
 # TRTC/TIM的资源信息
 TRTC_TIM_APPID=xxxxxxxxxxxxxxxx
 TRTC_TIM_SECRET=xxxxxxxxxxxxxxxx

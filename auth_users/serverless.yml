@@ -9,7 +9,7 @@ inputs:
     src: ./
     exclude:
       - .env
-  region: ${env:REGION}
+  region: ap-guangzhou
   faas:
     runtime: Nodejs12.16
     framework: koa
@@ -20,7 +20,7 @@ inputs:
       subnetId: ${output:${stage}:${app}:labs_vpc.subnetId}
     environments:
       - key: REGION
-        value: ${env:REGION}
+        value: ap-guangzhou
       - key: STAGE
         value: ${stage}
       - key: JWT_SECRET

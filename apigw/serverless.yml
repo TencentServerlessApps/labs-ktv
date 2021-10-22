@@ -5,7 +5,7 @@ component: apigateway
 name: labs_apigw
 
 inputs:
-  region: ${env:REGION}
+  region: ap-guangzhou
   serviceName: labs_apigw
   environment: release
   protocols:

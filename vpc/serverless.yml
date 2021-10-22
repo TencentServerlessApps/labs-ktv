@@ -6,8 +6,8 @@ name: labs_vpc
 
 
 inputs:
-  region: ${env:REGION}
-  zone: ${env:ZONE}
+  region: ap-guangzhou
+  zone: ap-guangzhou-4
   vpcName: labs
   subnetName: labs-serverless
   tags:

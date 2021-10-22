@@ -1,0 +1,32 @@
+app: ${env:APP}
+stage: ${stage} # The debugger only for test env.
+
+component: vpc
+name: labs_vpc
+
+
+inputs:
+  region: ${env:REGION}
+  zone: ${env:ZONE}
+  vpcName: labs
+  subnetName: labs-serverless
+  tags:
+    - Key: app
+      Value: ${env:TAG_APP}
+    - Key: 负责人
+      Value: ${env:OWNER}
+    - Key: 运营产品
+      Value: ${env:PRODUCT}
+    - Key: 运营部门
+      Value: ${env:DEPARTMENT}
+  subnetTags:
+    - Key: app
+      Value: ${env:TAG_APP}
+    - Key: 负责人
+      Value: ${env:OWNER}
+    - Key: 运营产品
+      Value: ${env:PRODUCT}
+    - Key: 运营部门
+      Value: ${env:DEPARTMENT}
+
+# https://github.com/serverless-components/tencent-vpc/blob/master/docs/configure.md

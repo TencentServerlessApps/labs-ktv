@@ -1,0 +1,31 @@
+app: ${env:APP}
+stage: ${stage} # The debugger only for test env.
+
+component: apigateway
+name: labs_apigw
+
+inputs:
+  region: ${env:REGION}
+  serviceName: labs_apigw
+  environment: release
+  protocols:
+    - http
+    - https
+  endpoints:
+    - path: /helloworld
+      protocol: HTTP
+      method: ANY # GET POST PUT DELETE HEAD ANY
+      apiName: 'mock-api'
+      serviceType: MOCK
+      serviceMockReturnMessage: '"HelloWorld"'
+  tags:
+    - key: app
+      value: ${env:TAG_APP}
+    - key: 负责人
+      value: ${env:OWNER}
+    - key: 运营产品
+      value: ${env:PRODUCT}
+    - key: 运营部门
+      value: ${env:DEPARTMENT}
+
+# https://github.com/serverless-components/tencent-apigateway/blob/master/docs/configure.md

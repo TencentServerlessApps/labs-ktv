@@ -2,11 +2,14 @@
 
 TARGETS = $(shell ls -d */|grep -v -e js-kernel -e utest -e test -e sql -e postman -e mysql -e apigw -e vpc -e node_modules)
 
-all:
+all: .build
 	#cd hello && $(MAKE)
 	@for TARGET in $(TARGETS); do \
 		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE)) \
 	done
+
+.build: package.json Makefile
+	npm install && rm -f .build && touch .build
 
 clean:
 	rm -rf ./node_modules .build

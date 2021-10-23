@@ -47,6 +47,14 @@ require('oauth/oauth').create(router);
 require('auth_users/auth_users').create(router);
 require('rooms/rooms').create(router);
 
+// For default path.
+router.all('/', async (ctx) => {
+  ctx.body = errors.data(null, 'ok');
+});
+router.all('/base/v1/', async (ctx) => {
+  ctx.body = errors.data(null, 'ok');
+});
+
 // Redirect /${stage}/xxx to /xxx
 app.use(new Router({prefix: `/${process.env.STAGE}`}).use(router.routes()).routes());
 

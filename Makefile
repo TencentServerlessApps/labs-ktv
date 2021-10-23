@@ -1,24 +1,15 @@
 .PHONY: all clean dev prod help
 
-TARGETS = $(shell ls -d */|grep -v -e postman -e mysql -e apigw -e vpc)
+all: .build
 
-all:
-	#cd hello && $(MAKE)
-	@for TARGET in $(TARGETS); do \
-		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE)) \
-	done
+.build: package.json Makefile
+	npm install && rm -f .build && touch .build
 
 clean:
-	#cd hello && $(MAKE) clean
-	@for TARGET in $(TARGETS); do \
-		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE) clean) \
-	done
+	rm -rf ./node_modules .build
 
 prod:
-	#cd hello && $(MAKE) prod
-	@for TARGET in $(TARGETS); do \
-		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE) prod) \
-	done
+	sls deploy --stage=prod
 
 help:
 	@echo 'Usage: make [all|clean|dev|prod|remove]'

@@ -8,7 +8,6 @@ objs
 node_modules
 /scf
 /previous
-/*.json
 /*.txt
 /rtc
 /versions

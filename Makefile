@@ -8,7 +8,7 @@ all: .build
 clean:
 	rm -rf ./node_modules .build
 
-prod:
+prod: .build
 	sls deploy --stage=prod
 
 help:

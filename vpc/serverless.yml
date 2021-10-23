@@ -4,7 +4,6 @@ stage: prod # The debugger only for test env.
 component: vpc
 name: labs_vpc
 
-
 inputs:
   region: ap-guangzhou
   zone: ap-guangzhou-4

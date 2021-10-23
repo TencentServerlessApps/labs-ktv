@@ -2,13 +2,14 @@ app: labs-ktv
 stage: prod # The debugger only for test env.
 
 component: http
-name: auth_users
+name: application
 
 inputs:
   src:
     src: ./
     exclude:
       - .env
+      - .env.local
   region: ap-guangzhou
   faas:
     runtime: Nodejs12.16
@@ -23,10 +24,8 @@ inputs:
         value: ap-guangzhou
       - key: STAGE
         value: ${stage}
-      - key: JWT_SECRET
-        value: ${env:JWT_SECRET}
       - key: MYSQL_DB
-        value: ${env:APP}
+        value: ${app}
       - key: MYSQL_USER
         value: root
       - key: MYSQL_HOST
@@ -44,7 +43,7 @@ inputs:
     environment: release
     id: ${output:${stage}:${app}:labs_apigw.serviceId}
     api:
-      path: /${stage}/base/v1/${name}/
+      path: /${stage}/base/v1/
       cors: true
       timeout: 30
       qualifier: $DEFAULT

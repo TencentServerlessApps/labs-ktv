@@ -1,18 +1,14 @@
 .PHONY: all clean dev prod help
 
-TARGETS = $(shell ls -d */|grep -v -e js-kernel -e utest -e test -e sql -e postman -e mysql -e apigw -e vpc -e node_modules)
+TARGETS = $(shell ls -d */|grep -v -e postman -e mysql -e apigw -e vpc)
 
-all: .build
+all:
 	#cd hello && $(MAKE)
 	@for TARGET in $(TARGETS); do \
 		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE)) \
 	done
 
-.build: package.json Makefile
-	npm install && rm -f .build && touch .build
-
 clean:
-	rm -rf ./node_modules .build
 	#cd hello && $(MAKE) clean
 	@for TARGET in $(TARGETS); do \
 		(echo "Build $$TARGET" && cd $$TARGET && $(MAKE) clean) \

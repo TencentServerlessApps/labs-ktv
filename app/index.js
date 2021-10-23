@@ -2,6 +2,8 @@
 
 console.log('Only for local debugger');
 
+const fs = require('fs');
+const path = require('path');
 const dotenv = require('dotenv');
 const Koa = require('koa');
 const Router = require('koa-router');
@@ -13,7 +15,13 @@ const errors = require('js-core/errors');
 process.env.STAGE = process.env.STAGE || 'local';
 
 // Try to read .env manually, for directly run node.
-dotenv.config({path: `.env.${process.env.STAGE}`});
+if (fs.existsSync(`.env.${process.env.STAGE}`)) {
+  dotenv.config({path: `.env.${process.env.STAGE}`});
+} else if (fs.existsSync(path.join('..', `.env.${process.env.STAGE}`))) {
+  dotenv.config({path: path.join('..', `.env.${process.env.STAGE}`)});
+} else {
+  console.warn(`ignore .env.${process.env.STAGE}`);
+}
 
 const app = new Koa();
 
@@ -35,9 +43,9 @@ const router = new Router();
 app.use(router.routes());
 
 // Run all modules in one nodejs server.
-require('./oauth/oauth').create(router);
-require('./auth_users/auth_users').create(router);
-require('./rooms/rooms').create(router);
+require('oauth/oauth').create(router);
+require('auth_users/auth_users').create(router);
+require('rooms/rooms').create(router);
 
 // Redirect /${stage}/xxx to /xxx
 app.use(new Router({prefix: `/${process.env.STAGE}`}).use(router.routes()).routes());

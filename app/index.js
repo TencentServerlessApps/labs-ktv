@@ -36,6 +36,25 @@ app.use(async (ctx, next) => {
   }
 });
 
+// Define the HTTP 404 body.
+app.use(async (ctx, next) => {
+  await next();
+
+  if (ctx.status === 404) {
+    ctx.status = 404;
+    ctx.body = errors.create(errors.SystemError, `${ctx.request.url} not found`);
+  }
+});
+
+// Use HTTP 500 for application-level error.
+app.use(async (ctx, next) => {
+  await next();
+
+  if (ctx.body && ctx.body.errorCode) {
+    ctx.status = 500;
+  }
+});
+
 app.use(Cors());
 app.use(BodyParser());
 

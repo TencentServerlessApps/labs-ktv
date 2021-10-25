@@ -11,7 +11,7 @@ The backend for LabsKTV(动手实验室：KTV场景).
 * [开通SLS日志服务](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，云函数保存日志用的。
 * [云函数授权](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，云函数访问其他云资源用的。
 
-然后，创建开发测试环境的环境变量文件`.env`，注意需要修改下面所有的`xxx`的内容：
+然后，创建环境变量文件`.env`，注意需要修改下面所有的`xxx`的内容：
 
 ```bash
 # TRTC/TIM的资源信息

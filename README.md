@@ -31,7 +31,9 @@ npm install
 sls deploy
 ```
 
-从发布日志中获取API网关地址，例如：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com
+从发布日志中获取API网关地址，写入客户端，例如：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com
+
+## Notes
 
 删除云函数：
 ```bash

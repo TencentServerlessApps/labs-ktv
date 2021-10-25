@@ -12,7 +12,7 @@ inputs:
     - http
     - https
   endpoints:
-    - path: /
+    - path: /helloworld
       protocol: HTTP
       method: ANY # GET POST PUT DELETE HEAD ANY
       apiName: 'mock-api'

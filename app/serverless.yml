@@ -43,7 +43,7 @@ inputs:
     environment: release
     id: ${output:${stage}:${app}:labs_apigw.serviceId}
     api:
-      path: /${stage}/base/v1/
+      path: /
       cors: true
       timeout: 30
       qualifier: $DEFAULT

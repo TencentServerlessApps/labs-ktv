@@ -38,7 +38,9 @@ sls deploy
 
 ## Notes
 
-删除云函数：
+查看云函数的日志，请点[这里](https://console.cloud.tencent.com/scf/list-detail?rid=1&ns=default&id=application-prod-labs-ktv&menu=log&tab=codeTab)
+
+若需要删除云函数，请执行命令：
 
 ```bash
 sls remove

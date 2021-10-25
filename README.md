@@ -26,7 +26,7 @@ npm install -g serverless
 npm install
 ```
 
-最后，发布云函数：
+最后，发布云函数，需要扫码授权或配置[本地密钥授权](https://cloud.tencent.com/document/product/583/44786#.E6.9C.AC.E5.9C.B0.E5.AF.86.E9.92.A5.E6.8E.88.E6.9D.83)：
 ```bash
 sls deploy
 ```

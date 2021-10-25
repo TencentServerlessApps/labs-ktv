@@ -7,7 +7,6 @@ async function doInitialize(mysql, mysql2, config) {
   if (initialized) {
     return;
   }
-  initialized = true;
 
   const starttime = new Date();
 
@@ -144,6 +143,8 @@ async function doInitialize(mysql, mysql2, config) {
       UNIQUE KEY by_roomId_userId (roomId,userId) USING BTREE
     ) ENGINE=InnoDB AUTO_INCREMENT=3079 DEFAULT CHARSET=utf8 COMMENT='房间的用户列表。'
   `);
+
+  initialized = true;
 
   const cost = new Date() - starttime;
   console.log(`initdb-ok create ${config.database}, cost=${cost}ms, db=${JSON.stringify(r0)} id_generator=${JSON.stringify(r1)}, rooms=${JSON.stringify(r2)}, sessions=${JSON.stringify(r3)}, users=${JSON.stringify(r4)}, users_in_room=${JSON.stringify(r5)}`);

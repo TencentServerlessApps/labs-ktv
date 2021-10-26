@@ -7,6 +7,7 @@ all: .build
 
 clean:
 	rm -rf ./node_modules .build
+	cd app && $(MAKE) clean
 
 prod: .build
 	sls deploy --stage=prod

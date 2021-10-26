@@ -1,4 +1,9 @@
 {
+  "name": "labs-ktv-app",
+  "version": "1.0.0",
+  "description": "The backend service for Labs KTV",
+  "main": "index.js",
+  "url" : "https://github.com/TencentServerlessApps/labs-ktv/issues",
   "dependencies": {
     "auth_users": "file:auth_users",
     "dotenv": "^10.0.0",

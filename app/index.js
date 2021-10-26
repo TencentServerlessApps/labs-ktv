@@ -23,9 +23,11 @@ const app = new Koa();
 
 app.use(async (ctx, next) => {
   // Check required config, user MUST set it in .env or serverless.yml
-  if (!process.env.TRTC_TIM_APPID || !process.env.TRTC_TIM_SECRET) {
+  const appid = process.env.TRTC_TIM_APPID;
+  const secret = process.env.TRTC_TIM_SECRET;
+  if (!appid || !secret || appid === 'xxxxxxxxxxxxxxxx' || secret === 'xxxxxxxxxxxxxxxx') {
     ctx.status = 503;
-    ctx.body = errors.create(errors.SystemError, `invalid TRTC config, please check .env file`);
+    ctx.body = errors.create(errors.SystemError, `Invalid TRTC config, please check .env file`);
     return;
   }
 

@@ -61,7 +61,7 @@ Q: 为何网关地址无法访问？
 
 Q: 为何网关返回的是`SystemError(99): Invalid TRTC config`？
 
-> A: 请确认环境变量`.env`文件，是否配置了TRTC的SdkAppId和Secret。
+> A: 请确认环境变量`.env`文件，是否配置了TRTC的SdkAppId(TRTC_TIM_APPID)和Secret(TRTC_TIM_SECRET)。
 
 Q: 为何网关和函数无法访问？
 

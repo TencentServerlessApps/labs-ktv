@@ -45,13 +45,25 @@ sls deploy
 
 > Note: 在浏览器中直接打开你的网关地址，也应该是成功的才对，如上图所示。
 
-## Notes
+## FAQ
 
-查看云函数的日志，请点[这里](https://console.cloud.tencent.com/scf/list-detail?rid=1&ns=default&id=application-prod-labs-ktv&menu=log&tab=codeTab)
+Q: 如何查看云函数的日志？
 
-若需要删除云函数，请执行命令：
+> A: 查看云函数的日志，请点[这里](https://console.cloud.tencent.com/scf/list-detail?rid=1&ns=default&id=application-prod-labs-ktv&menu=log&tab=codeTab)
 
-```bash
-sls remove
-```
+Q: 如何删除云函数？
+
+> A: 若需要删除云函数，请执行命令：`sls remove`
+
+Q: 为何网关地址无法访问？
+
+> A: 请确认API网关是否开通，请点[这里](https://console.cloud.tencent.com/apigateway/service?rid=1)
+
+Q: 为何网关返回的是`SystemError(99): Invalid TRTC config`？
+
+> A: 请确认环境变量`.env`文件，是否配置了TRTC的SdkAppId和Secret。
+
+Q: 为何网关和函数无法访问？
+
+> A：请确认是否开通服务，请确认是否账户欠费。
 

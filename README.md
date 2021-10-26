@@ -55,15 +55,15 @@ Q: 如何删除云函数？
 
 > A: 若需要删除云函数，请执行命令：`sls remove`
 
-Q: 为何网关地址无法访问？
-
-> A: 请确认API网关是否开通，请点[这里](https://console.cloud.tencent.com/apigateway/service?rid=1)
-
 Q: 为何网关返回的是`SystemError(99): Invalid TRTC config`？
 
-> A: 请确认环境变量`.env`文件，是否配置了TRTC的SdkAppId(TRTC_TIM_APPID)和Secret(TRTC_TIM_SECRET)。
+> A: 请确认环境变量`.env`文件，请不要更改文件名，是否配置了TRTC的SdkAppId(TRTC_TIM_APPID)和Secret(TRTC_TIM_SECRET)。
 
 Q: 为何网关和函数无法访问？
 
 > A：请确认是否开通服务，请确认是否账户欠费。
+
+Q：为何Windows无法发布云函数？
+
+> A: 请使用系统管理员(Administrator)启动`Node.js command prompt`，请不要用PowerShell。
 

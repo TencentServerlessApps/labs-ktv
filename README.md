@@ -9,6 +9,7 @@ The backend for LabsKTV(动手实验室：KTV场景).
 * [开通API网关](https://console.cloud.tencent.com/apigateway/service?rid=1)，通过API网关访问云函数，提供HTTP API。
 * [开通COS存储](https://console.cloud.tencent.com/cos5)，保存云函数代码用的。
 * [开通SLS日志服务](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，云函数保存日志用的。
+* [云监控授权](https://console.cloud.tencent.com/monitor/overview)，云函数提供监控能力。
 * [云函数授权](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，云函数访问其他云资源用的。
 
 然后，创建环境变量文件`.env`，注意需要修改下面所有的`xxx`的内容：
@@ -32,7 +33,7 @@ npm install
 
 > Note: 若安装sls有问题，请看官方说明文档[sls](https://cloud.tencent.com/document/product/583/44753)，有详细解决办法。
 
-> Note: 关于Node安装，请参考[nodejs](https://nodejs.org/zh-cn/download/)，在Windows下请使用`Node.js command prompt`。
+> Note: 关于Node安装，请参考[nodejs](https://nodejs.org/zh-cn/download/)，在Windows下请使用Administrator权限启动`Node.js command prompt`，不支持PowerShell。
 
 最后，发布云函数，需要扫码授权或配置[本地密钥授权](https://cloud.tencent.com/document/product/583/44786#.E6.9C.AC.E5.9C.B0.E5.AF.86.E9.92.A5.E6.8E.88.E6.9D.83)：
 
@@ -40,7 +41,7 @@ npm install
 sls deploy
 ```
 
-> Note: Windows用户，请使用`Node.js command prompt`，请使用[本地密钥授权](https://cloud.tencent.com/document/product/583/44786#.E6.9C.AC.E5.9C.B0.E5.AF.86.E9.92.A5.E6.8E.88.E6.9D.83)，扫码认证会失败。
+> Note: Windows用户，请使用Administrator权限启动`Node.js command prompt`，否则扫码认证会失败。
 
 从发布日志中获取API网关地址，写入客户端，例如：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com
 

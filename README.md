@@ -57,7 +57,7 @@ Q: 如何删除云函数？
 
 Q: 为何网关返回的是`SystemError(99): Invalid TRTC config`？
 
-> A: 请确认环境变量`.env`文件，请不要更改文件名，是否配置了TRTC的SdkAppId(TRTC_TIM_APPID)和Secret(TRTC_TIM_SECRET)。
+> A: 请确认环境变量`.env`文件，请不要更改文件名，请检查是否正确配置了TRTC的SdkAppId(TRTC_TIM_APPID)和Secret(TRTC_TIM_SECRET)。
 
 Q: 为何网关和函数无法访问？
 

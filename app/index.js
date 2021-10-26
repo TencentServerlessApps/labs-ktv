@@ -1,7 +1,5 @@
 'use strict';
 
-console.log('Only for local debugger');
-
 const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
@@ -15,15 +13,24 @@ const errors = require('js-core/errors');
 process.env.STAGE = process.env.STAGE || 'local';
 
 // Try to read .env manually, for directly run node.
-if (fs.existsSync(`.env.${process.env.STAGE}`)) {
-  dotenv.config({path: `.env.${process.env.STAGE}`});
-} else if (fs.existsSync(path.join('..', `.env.${process.env.STAGE}`))) {
-  dotenv.config({path: path.join('..', `.env.${process.env.STAGE}`)});
-} else {
-  console.warn(`ignore .env.${process.env.STAGE}`);
-}
+['.', '..'].map(envDir => {
+  if (fs.existsSync(path.join(envDir, `.env.${process.env.STAGE}`))) {
+    dotenv.config({path: path.join(envDir, `.env.${process.env.STAGE}`)});
+  }
+});
 
 const app = new Koa();
+
+app.use(async (ctx, next) => {
+  // Check required config, user MUST set it in .env or serverless.yml
+  if (!process.env.TRTC_TIM_APPID || !process.env.TRTC_TIM_SECRET) {
+    ctx.status = 503;
+    ctx.body = errors.create(errors.SystemError, `invalid TRTC config, please check .env file`);
+    return;
+  }
+
+  await next();
+});
 
 app.use(async (ctx, next) => {
   await next();

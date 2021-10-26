@@ -36,6 +36,10 @@ sls deploy
 
 从发布日志中获取API网关地址，写入客户端，例如：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com
 
+![image](https://user-images.githubusercontent.com/2777660/138798904-1435d703-db61-47cb-9044-c6d50424bfac.png)
+
+> Note: 在浏览器中直接打开你的网关地址，也应该是成功的才对，如上图所示。
+
 ## Notes
 
 查看云函数的日志，请点[这里](https://console.cloud.tencent.com/scf/list-detail?rid=1&ns=default&id=application-prod-labs-ktv&menu=log&tab=codeTab)

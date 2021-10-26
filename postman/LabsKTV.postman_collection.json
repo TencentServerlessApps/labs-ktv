@@ -977,6 +977,96 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "error",
+			"item": [
+				{
+					"name": "oauth/error",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"check error\", function () {\r",
+									"    pm.expect(res.errorCode).to.eql(99);\r",
+									"});\r",
+									"\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									"",
+									"const ts = new Date().getTime().toString();",
+									"pm.request.url.removeQueryParams('ts');",
+									"pm.request.url.addQueryParams({key: 'ts', value: ts});",
+									"",
+									"const nonce = Math.random().toString().slice(-6);",
+									"pm.request.url.removeQueryParams('nonce');",
+									"pm.request.url.addQueryParams({key: 'nonce', value: nonce});",
+									"",
+									"const username = pm.collectionVariables.get(\"username\");",
+									"const {tag} = pm.request.url.query.toObject();",
+									"",
+									"const clientSecret = '';",
+									"const signature = CryptoJS.MD5(`${username}-${tag}-${ts}-${nonce}-${clientSecret}`).toString();",
+									"pm.request.url.removeQueryParams('signature');",
+									"pm.request.url.addQueryParams({key: 'signature', value: signature});",
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{service}}/base/v1/oauth/error"
+					},
+					"response": []
+				},
+				{
+					"name": "oauth/not-found",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"const res = pm.response.json();\r",
+									"\r",
+									"pm.test(\"check error\", function () {\r",
+									"    pm.expect(res.errorCode).to.eql(99);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": "{{service}}/not-found"
+					},
+					"response": []
+				}
+			]
 		}
 	],
 	"event": [

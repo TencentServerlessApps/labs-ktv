@@ -9,7 +9,6 @@ The backend for LabsKTV(动手实验室：KTV场景).
 * [开通API网关](https://console.cloud.tencent.com/apigateway/service?rid=1)，通过API网关访问云函数，提供HTTP API。
 * [开通COS存储](https://console.cloud.tencent.com/cos5)，保存云函数代码用的。
 * [开通SLS日志服务](https://console.cloud.tencent.com/cls/overview?region=ap-guangzhou)，云函数保存日志用的。
-* [云监控授权](https://console.cloud.tencent.com/monitor/overview)，云函数提供监控能力。
 * [云函数授权](https://console.cloud.tencent.com/scf/list?rid=1&ns=default)，云函数访问其他云资源用的。
 
 然后，创建环境变量文件`.env`，注意需要修改下面所有的`xxx`的内容：

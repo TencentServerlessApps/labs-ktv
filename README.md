@@ -67,3 +67,11 @@ Q：为何Windows无法发布云函数？
 
 > A: 请使用系统管理员(Administrator)启动`Node.js command prompt`，请不要用PowerShell。
 
+Q: 如何确认网关创建成功？
+
+> A: 若能在浏览器访问，则网关正常：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com/helloworld
+
+Q: 如何确认函数创建成功？
+
+> A: 若能在浏览器访问，则函数创建正常：https://service-xxxyyzzz-1001234567.gz.apigw.tencentcs.com
+
